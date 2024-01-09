@@ -1,5 +1,6 @@
 DevSecOps Pipeline Project: Deploy Netflix Clone on Kubernetes
                                                              -By: Mahalakshmi
+                                                             
 DevSecOps stands for development, security, and operations. It's an approach to culture, automation, and platform design that integrates security as a shared responsibility throughout the entire IT lifecycle.
 Let’s a gooooooo…
 1.	First, we create an EC2 instance and host an application locally using a Docker container.
