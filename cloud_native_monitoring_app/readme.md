@@ -1,6 +1,6 @@
 How to build an application and deploy it on Kubernetes                
                                                            -By:Mahalakshmi
-
+----------------------------------------------------------------------------------------------------------------------------------------
 What we are doing-
 1.	How to create a monitoring application in Python using flask
 2.	Start by building the application and then containerize it using Docker
@@ -10,8 +10,8 @@ What we are doing-
    
 Tools: Python, Kubernetes, Docker, Amazon ECR, Python+boto3
 
+---------------------------------------------------------------------------------------------------------------------------------------
 Lets start!
-
 
 Prerequisites:
 1.	AWS account  
@@ -47,6 +47,8 @@ Once you check it move it to c folder
 5. Code editor (vscode)
 Download vscode
 
+----------------------------------------------------------------------------------------------------------------------------------------
+
 Now that we have the prerequisites, lets reaaally start! 😊
 Building application and running in local machine:
 1.	Create a folder called “cloud_native_monitoring_app” in your home directory. We will be using this folder to create all your files here.
@@ -76,6 +78,7 @@ And every time you run , it or say refresh the chrome page, you will get the log
 20.	 Then create a new folder called “templates” and inside that folder create an index.html and paste the code given below. If you see the html file, we can see that we are setting the style as a gauge or indicator to show the CPU and memory utilization.
 21.	You can also see it from any device entering the ip 192.168.0.163:5000
 
+----------------------------------------------------------------------------------------------------------------------------------------
 
 Now we have our application running in the local machine, do we need to containerize this application now.
 1.	So create a file called docker file, so that it can create an image and run the application in the form of container.
@@ -94,6 +97,7 @@ docker build -t my-flask-app .
 docker images
 docker run -p 5000:5000 <imageID>
 
+----------------------------------------------------------------------------------------------------------------------------------------
 
 Now we go ahead and push the imaged to docker hub/ECR and then deploy it as a ECR Kubernetes cluster
 1.	Go to amazon ECR, you can easily create repository in the ECR page, by just clicking create repository and giving name, but that is no dun, so lets go and create in VS code using python.
@@ -123,6 +127,8 @@ docker tag my-cloud-native-repo:latest 279646452254.dkr.ecr.us-east-1.amazonaws.
 docker push 279646452254.dkr.ecr.us-east-1.amazonaws.com/my-cloud-native-repo:latest
 15.	Once it is done, you should be able to see our image in the repository
 
+----------------------------------------------------------------------------------------------------------------------------------------
+
 Now lets go to EKS to create our Kubernetes cluster
 1.	Go to Amazon EKS, and click on Create Cluster.
 2.	Give a name for the cluster “cloud-native-cluster, leave the default 1.28Kubernete Kubernetes version
@@ -136,7 +142,7 @@ Now lets go to EKS to create our Kubernetes cluster
 10.	In the next, select, AMI,t2.micro, on demand, desiredsize, minimumsize, maximumsize =>2->next
 11.	Select the subnets->next->create, this will create node group having 2 nodes inside it
 
- 
+---------------------------------------------------------------------------------------------------------------------------------------- 
 
 Now lets go back to vs code and proceed with Kubernetes deployment and Kubernetes service
 1.	If you go to Kubernetes deployment in Kubernetes website->you will see the deployment refers to declarative updates for pods and ReplicaSet, so in deployment, we will mention, what image to use, what application name, how many replicas,  all those steps, even port number, and Kubernetes will use this deployment to maintain the state.
